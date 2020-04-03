@@ -1,6 +1,6 @@
 {
-  "name": "shop-hub",
-  "short_name": "shop-hub",
+  "name": "shop-hub-customer",
+  "short_name": "shop-hub-customer",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "shop-hub": {
+    "shop-hub-customer": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/shop-hub",
+            "outputPath": "dist/shop-hub-customer",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shop-hub:build"
+            "browserTarget": "shop-hub-customer:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "shop-hub:build:production"
+              "browserTarget": "shop-hub-customer:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shop-hub:build"
+            "browserTarget": "shop-hub-customer:build"
           }
         },
         "test": {
@@ -119,15 +119,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "shop-hub:serve"
+            "devServerTarget": "shop-hub-customer:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "shop-hub:serve:production"
+              "devServerTarget": "shop-hub-customer:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "shop-hub"
+  "defaultProject": "shop-hub-customer"
 }
