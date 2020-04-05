@@ -5,7 +5,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './register-reducers';
-
+import { UserEffects } from './user/user.effects';
+import { UserFacade } from './user/user.facade';
 
 @NgModule({
     declarations: [],
@@ -13,9 +14,9 @@ import { reducers } from './register-reducers';
         CommonModule,
         StoreModule.forRoot(reducers),
         StoreDevtoolsModule.instrument({ maxAge: 10 }),
-        EffectsModule.forRoot([]),
+        EffectsModule.forRoot([UserEffects]),
         StoreRouterConnectingModule.forRoot(),
     ],
-    providers: [],
+    providers: [UserFacade],
 })
 export class CreateStoreModule {}

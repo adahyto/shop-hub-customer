@@ -6,7 +6,8 @@ export interface IContactDetails {
 }
 
 export interface IUser {
-  _id: string;
-  addresses: IAddress[];
-  contactDetails: IContactDetails;
+    _id: string;
+    username: string;
+    addresses: IAddress[];
+    contactDetails: IContactDetails;
 }
