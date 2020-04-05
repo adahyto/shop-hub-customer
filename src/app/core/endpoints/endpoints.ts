@@ -1,8 +1,8 @@
 export const signup = (baseUrl: string): string => `${baseUrl}/signup`;
 export const signin = (baseUrl: string): string => `${baseUrl}/signin`;
 
-export const me = (baseUrl: string): string => `${baseUrl}`;
-export const newAddress = (baseUrl: string): string => `${me(baseUrl)}/add-address`;
+export const identity = (baseUrl: string): string => `${baseUrl}`;
+export const newAddress = (baseUrl: string): string => `${identity(baseUrl)}/add-address`;
 
 export const products = (baseUrl: string): string => `${baseUrl}/products`;
 export const inCategory = (baseUrl: string, category: string): string => `${products(baseUrl)}/${category}`;

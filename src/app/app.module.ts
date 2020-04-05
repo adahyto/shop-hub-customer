@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthGuard } from './core/services/auth-guard.service';
 import { UserFacade } from './core/store/user/user.facade';
+import { TokenInterceptor } from './core/utils/token-intercetor';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +20,15 @@ import { CreateStoreModule } from './core/store/create-store.module';
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
         CreateStoreModule,
     ],
-    providers: [UserFacade],
+    providers: [
+        UserFacade,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true,
+        },
+        AuthGuard,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
