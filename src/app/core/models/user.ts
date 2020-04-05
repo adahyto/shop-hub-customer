@@ -9,5 +9,5 @@ export interface IUser {
     _id: string;
     username: string;
     addresses: IAddress[];
-    contactDetails: IContactDetails;
+    contactDetails: IContactDetails | {};
 }
