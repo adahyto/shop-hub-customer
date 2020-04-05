@@ -7,10 +7,14 @@ import * as selectors from './user.selectors';
 
 @Injectable()
 export class UserFacade {
-    me$ = this.store.pipe(select(selectors.reclaimYourself));
-    token$ = this.store.pipe(select(selectors.reclaimToken));
+    me$ = this.store.pipe(select(selectors.getYourself));
+    token$ = this.store.pipe(select(selectors.getToken));
 
     constructor(private store: Store<IUserPartialStore>) {}
+
+    reclaimIdentity = (): void => {
+        const taskId = 'reclaim-identity';
+    };
 
     login = (payload: ILoginRequest): void => {
         const taskId = 'login';

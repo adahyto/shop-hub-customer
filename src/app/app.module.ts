@@ -1,3 +1,4 @@
+import { AuthGuard } from './core/services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { UserFacade } from './core/store/user/user.facade';
@@ -26,6 +27,7 @@ import { CreateStoreModule } from './core/store/create-store.module';
             useClass: TokenInterceptor,
             multi: true,
         },
+        AuthGuard,
     ],
     bootstrap: [AppComponent],
 })
