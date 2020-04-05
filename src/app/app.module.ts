@@ -1,6 +1,6 @@
-import { AuthGuard } from './core/services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthGuard } from './core/services/auth-guard.service';
 import { UserFacade } from './core/store/user/user.facade';
 import { TokenInterceptor } from './core/utils/token-intercetor';
 
