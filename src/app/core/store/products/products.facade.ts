@@ -15,17 +15,17 @@ export class ProductsFacade {
 
     fetchAllProducts = (): void => {
         const taskId = 'fetch-all-products';
-        this.store.dispatch(new actions.ProductRequestAction(taskId));
+        this.store.dispatch(new actions.ProductsRequestAction(taskId));
     };
 
     fetchProductsById = (id: string): void => {
         const taskId = 'fetch-products-by-id';
-        this.store.dispatch(new actions.ProductByIdRequestAction(taskId, id));
+        this.store.dispatch(new actions.ProductsByIdRequestAction(taskId, id));
     };
 
     fetchProductsByCategory = (category: string): void => {
         const taskId = 'fetch-products-by-category';
-        this.store.dispatch(new actions.ProductCategoryRequestAction(taskId, category));
+        this.store.dispatch(new actions.ProductsCategoryRequestAction(taskId, category));
     };
 
     searchProductsByName = (query: string): void => {

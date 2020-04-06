@@ -10,32 +10,32 @@ export class ProductsEffects {
     constructor(private productService: ProductsService, private actions$: Actions) {}
 
     @Effect() fetchAllProducts$ = this.actions$.pipe(
-        ofType<actions.ProductRequestAction>(EVENTS.PRODUCTS_REQUESTED),
+        ofType<actions.ProductsRequestAction>(EVENTS.PRODUCTS_REQUESTED),
         switchMap(({ taskId }) =>
-            this.productService.getAll().pipe(map((response) => new actions.ProductResponseAction(taskId, response))),
+            this.productService.getAll().pipe(map((response) => new actions.ProductsResponseAction(taskId, response))),
         ),
     );
 
     @Effect() searchProductsById$ = this.actions$.pipe(
-        ofType<actions.ProductByIdRequestAction>(EVENTS.PRODUCTS_BY_ID_REQUESTED),
+        ofType<actions.ProductsByIdRequestAction>(EVENTS.PRODUCTS_BY_ID_REQUESTED),
         switchMap(({ taskId, productId }) =>
-            this.productService.getById(productId).pipe(map((response) => new actions.ProductByIdResponseAction(taskId, response))),
+            this.productService.getById(productId).pipe(map((response) => new actions.ProductsByIdResponseAction(taskId, response))),
         ),
     );
 
     @Effect() fetchProductsByCategory$ = this.actions$.pipe(
-        ofType<actions.ProductCategoryRequestAction>(EVENTS.PRODUCTS_CATEGORY_REQUESTED),
+        ofType<actions.ProductsCategoryRequestAction>(EVENTS.PRODUCTS_CATEGORY_REQUESTED),
         switchMap(({ taskId, category }) =>
             this.productService
                 .getByCategory(category)
-                .pipe(map((response) => new actions.ProductCategoryResponseAction(taskId, response))),
+                .pipe(map((response) => new actions.ProductsCategoryResponseAction(taskId, response))),
         ),
     );
 
     @Effect() searchProductsByName$ = this.actions$.pipe(
         ofType<actions.ProductByNameRequestAction>(EVENTS.PRODUCTS_BY_NAME_REQUESTED),
         switchMap(({ taskId, query }) =>
-            this.productService.searchByName(query).pipe(map((response) => new actions.ProductByNameResponseAction(taskId, response))),
+            this.productService.searchByName(query).pipe(map((response) => new actions.ProductsByNameResponseAction(taskId, response))),
         ),
     );
 }
