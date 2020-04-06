@@ -39,11 +39,11 @@ export interface IPaymentDetails {
 export interface ICartProduct extends IProductBase {
     vendorId: string;
     vendorSpotId: string;
-    amount: string;
+    amount: number;
 }
 
 export interface ICart {
-    products: ICartProduct[];
+    products: ICartProduct[] | [];
 }
 
 export interface IOrder {

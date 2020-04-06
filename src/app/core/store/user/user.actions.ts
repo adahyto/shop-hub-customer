@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ILoginResponse } from '../../models/auth';
-import { ILoginRequest } from './../../models/auth';
+import { ILoginRequest, ILoginResponse } from '../../models/auth';
 import { IUser } from './../../models/user';
 import * as EVENTS from './user.events';
 
