@@ -7,6 +7,7 @@ import * as selectors from './products.selectors';
 @Injectable()
 export class ProductsFacade {
     all$ = this.store.pipe(select(selectors.getAllProducts));
+    selectedById = this.store.pipe(select(selectors.getProductById));
     byCategory$ = this.store.pipe(select(selectors.getProductsByCategory));
     byName$ = this.store.pipe(select(selectors.getProductsByName));
 
@@ -15,6 +16,11 @@ export class ProductsFacade {
     fetchAllProducts = (): void => {
         const taskId = 'fetch-all-products';
         this.store.dispatch(new actions.ProductRequestAction(taskId));
+    };
+
+    fetchProductsById = (id: string): void => {
+        const taskId = 'fetch-products-by-id';
+        this.store.dispatch(new actions.ProductByIdRequestAction(taskId, id));
     };
 
     fetchProductsByCategory = (category: string): void => {

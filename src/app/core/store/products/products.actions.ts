@@ -12,6 +12,16 @@ export class ProductResponseAction implements Action {
     constructor(public taskId: string, public data: IProduct[]) {}
 }
 
+export class ProductByIdRequestAction implements Action {
+    readonly type = EVENTS.PRODUCTS_BY_ID_REQUESTED;
+    constructor(public taskId: string, public productId: string) {}
+}
+
+export class ProductByIdResponseAction implements Action {
+    readonly type = EVENTS.PRODUCTS_BY_ID_RECEIVED;
+    constructor(public taskId: string, public data: IProduct) {}
+}
+
 export class ProductCategoryRequestAction implements Action {
     readonly type = EVENTS.PRODUCTS_CATEGORY_REQUESTED;
     constructor(public taskId: string, public category: string) {}
@@ -35,6 +45,8 @@ export class ProductByNameResponseAction implements Action {
 export type ProductsActions =
     | ProductRequestAction
     | ProductResponseAction
+    | ProductByIdRequestAction
+    | ProductByIdResponseAction
     | ProductCategoryRequestAction
     | ProductCategoryResponseAction
     | ProductByNameRequestAction

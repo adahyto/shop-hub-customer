@@ -1,6 +1,6 @@
 import { IAddress } from './location';
 
-export interface IContactDetails {
+interface IContactDetails {
     email: string;
     phone: string;
 }

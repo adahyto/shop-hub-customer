@@ -16,6 +16,13 @@ export class ProductsEffects {
         ),
     );
 
+    @Effect() searchProductsById$ = this.actions$.pipe(
+        ofType<actions.ProductByIdRequestAction>(EVENTS.PRODUCTS_BY_ID_REQUESTED),
+        switchMap(({ taskId, productId }) =>
+            this.productService.getById(productId).pipe(map((response) => new actions.ProductByIdResponseAction(taskId, response))),
+        ),
+    );
+
     @Effect() fetchProductsByCategory$ = this.actions$.pipe(
         ofType<actions.ProductCategoryRequestAction>(EVENTS.PRODUCTS_CATEGORY_REQUESTED),
         switchMap(({ taskId, category }) =>
