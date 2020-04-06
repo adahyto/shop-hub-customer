@@ -1,6 +1,6 @@
 import { IAddress } from './location';
 
-export interface IContactDetails {
+interface IContactDetails {
     email: string;
     phone: string;
 }
@@ -9,5 +9,5 @@ export interface IUser {
     _id: string;
     username: string;
     addresses: IAddress[];
-    contactDetails: IContactDetails;
+    contactDetails: IContactDetails | {};
 }

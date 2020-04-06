@@ -1,7 +1,11 @@
-export interface IProduct {
+export interface IProductBase {
     _id: string;
-    categories: string[];
-    description: string;
     price: number;
+    name: string;
+}
+
+export interface IProduct extends IProductBase {
+    description: string;
+    categories: string[];
     additionalDetails: string;
 }

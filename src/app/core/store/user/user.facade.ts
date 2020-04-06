@@ -14,10 +14,11 @@ export class UserFacade {
 
     reclaimIdentity = (): void => {
         const taskId = 'reclaim-identity';
+        this.store.dispatch(new actions.UserRequestAction(taskId));
     };
 
     login = (payload: ILoginRequest): void => {
         const taskId = 'login';
-        this.store.dispatch(new actions.UserRequestAction(taskId, payload));
+        this.store.dispatch(new actions.UserLoginRequestAction(taskId, payload));
     };
 }
