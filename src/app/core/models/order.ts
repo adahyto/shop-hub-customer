@@ -36,14 +36,23 @@ export interface IPaymentDetails {
     status: PaymentStatus;
 }
 
-export interface ICartProduct extends IProductBase {
+export interface IVendorOrderInfo {
     vendorId: string;
     vendorSpotId: string;
-    amount: string;
+}
+
+export interface ICartProduct extends IProductBase, IVendorOrderInfo {
+    amount: number;
+}
+
+export interface IAddToCartPayload {
+    productBase: IProductBase;
+    vendorOrderInfo: IVendorOrderInfo;
+    amount: number;
 }
 
 export interface ICart {
-    products: ICartProduct[];
+    products: ICartProduct[] | [];
 }
 
 export interface IOrder {
