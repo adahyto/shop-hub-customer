@@ -66,3 +66,8 @@ export interface IOrder {
     status: OrderStatus;
     note: string;
 }
+
+export interface IOrderResponse {
+  success: boolean;
+  order: IOrder;
+}

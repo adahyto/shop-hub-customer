@@ -11,17 +11,14 @@ export class UserEffects {
     constructor(private authService: AuthService, private userService: UserService, private actions$: Actions) {}
 
     @Effect() login$ = this.actions$.pipe(
-      ofType<actions.UserLoginRequestAction>(EVENTS.USER_LOGIN_REQUESTED),
-      switchMap(({ taskId, payload }) =>
-          this.authService.signIn(payload).pipe(map((response) => new actions.UserLoginResponseAction(taskId, response))),
-      ),
-  );
-
-    @Effect() reclaimIdentity$ = this.actions$.pipe(
-        ofType<actions.UserRequestAction>(EVENTS.USER_REQUESTED),
-        switchMap(({ taskId }) =>
-            this.userService.me().pipe(map((response) => new actions.UserResponseAction(taskId, response))),
+        ofType<actions.UserLoginRequestAction>(EVENTS.USER_LOGIN_REQUESTED),
+        switchMap(({ taskId, payload }) =>
+            this.authService.signIn(payload).pipe(map((response) => new actions.UserLoginResponseAction(taskId, response))),
         ),
     );
 
+    @Effect() reclaimIdentity$ = this.actions$.pipe(
+        ofType<actions.UserRequestAction>(EVENTS.USER_REQUESTED),
+        switchMap(({ taskId }) => this.userService.me().pipe(map((response) => new actions.UserResponseAction(taskId, response)))),
+    );
 }

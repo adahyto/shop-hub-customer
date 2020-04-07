@@ -17,7 +17,6 @@ export class AuthService {
         this.userFacade.token$
             .subscribe((token) => {
                 token ? (authenticated = true) : (authenticated = false);
-                console.log(authenticated);
             })
             .unsubscribe();
         return authenticated;

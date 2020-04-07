@@ -1,0 +1,5 @@
+export const ORDERS_NEW_REQUESTED = '[Orders] NEW REQUESTED';
+export const ORDERS_NEW_RECEIVED = '[Orders] NEW RECEIVED';
+
+export const ORDERS_HISTORY_REQUESTED = '[Orders] HISTORY REQUESTED';
+export const ORDERS_HISTORY_RECEIVED = '[Orders] HISTORY RECEIVED';
