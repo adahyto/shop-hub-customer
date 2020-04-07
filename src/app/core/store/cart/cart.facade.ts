@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { IProductBase } from './../../models/products';
+import { IAddToCartPayload } from '../../models/order';
 import * as actions from './cart.actions';
 import { ICartPartialStore } from './cart.reducer';
 import * as selectors from './cart.selectors';
 
 @Injectable()
-export class UserFacade {
+export class CartFacade {
     mine$ = this.store.pipe(select(selectors.getMineCart));
 
     constructor(private store: Store<ICartPartialStore>) {}
 
-    addItem = (product: IProductBase): void => {
+    addItem = (payload: IAddToCartPayload): void => {
         const taskId = 'add-item';
-        this.store.dispatch(new actions.CartAddProductRequestAction(taskId, product));
+        this.store.dispatch(new actions.CartAddProductRequestAction(taskId, payload));
     };
 
     reduceItem = (productId: string): void => {
@@ -22,6 +22,7 @@ export class UserFacade {
     };
 
     deleteItem = (productId: string): void => {
+        console.log(productId);
         const taskId = 'delete-item';
         this.store.dispatch(new actions.CartDeleteProductRequestAction(taskId, productId));
     };

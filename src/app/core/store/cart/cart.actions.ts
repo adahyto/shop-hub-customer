@@ -1,11 +1,10 @@
 import { Action } from '@ngrx/store';
-import { ICartProduct } from '../../models/order';
-import { IProductBase } from './../../models/products';
+import { IAddToCartPayload, ICartProduct } from '../../models/order';
 import * as EVENTS from './cart.events';
 
 export class CartAddProductRequestAction implements Action {
     readonly type = EVENTS.CART_ADD_PRODUCT_REQUESTED;
-    constructor(public taskId: string, public productBase: IProductBase) {}
+    constructor(public taskId: string, public payload: IAddToCartPayload) {}
 }
 
 export class CartAddProductResponseAction implements Action {

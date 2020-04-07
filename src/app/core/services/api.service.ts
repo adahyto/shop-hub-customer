@@ -30,7 +30,6 @@ export class ApiService {
     }
 
     post(path: string, body: object = {}): Observable<any> {
-        console.log('apiser', body);
         return this.http.post(`${path}`, body).pipe(catchError(this.formatErrors));
     }
 

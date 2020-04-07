@@ -7,7 +7,7 @@ import * as selectors from './vendor-spots.selectors';
 @Injectable()
 export class VendorSpotsFacade {
     all$ = this.store.pipe(select(selectors.getAllVendorSpots));
-    selectedById = this.store.pipe(select(selectors.getVendorSpotById));
+    selectedById$ = this.store.pipe(select(selectors.getVendorSpotById));
 
     constructor(private store: Store<IVendorSpotsPartialStore>) {}
 
