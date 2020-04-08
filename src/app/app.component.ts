@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CartFacade } from './core/store/cart/cart.facade';
+import { OrdersFacade } from './core/store/orders/orders.facade';
 import { ProductsFacade } from './core/store/products/products.facade';
 import { UserFacade } from './core/store/user/user.facade';
 import { VendorSpotsFacade } from './core/store/vendor-spots/vendor-spots.facade';
@@ -17,41 +18,38 @@ export class AppComponent {
         private productsFacade: ProductsFacade,
         private vendorSpotsFacade: VendorSpotsFacade,
         private cartFacade: CartFacade,
+        private ordersFacade: OrdersFacade,
     ) {}
 
-    login() {
+    login(): void {
         this.userFacede.login({ user: { username: 'testUser', password: '123' } });
     }
 
-    getProducts() {
+    getProducts(): void {
         this.productsFacade.fetchAllProducts();
     }
 
-    getProductsById() {
+    getProductsById(): void {
         this.productsFacade.fetchProductsById('5e88aaa97c63d638909bf0fd');
     }
 
-    getProductsByCategory() {
+    getProductsByCategory(): void {
         this.productsFacade.fetchProductsByCategory('chujoza');
     }
 
-    getProductsByName() {
+    getProductsByName(): void {
         this.productsFacade.searchProductsByName('to');
     }
 
-    getVendorSpots() {
+    getVendorSpots(): void {
         this.vendorSpotsFacade.fetchAllVendorSpots();
     }
 
-    getVendorSpotsById() {
+    getVendorSpotsById(): void {
         this.vendorSpotsFacade.fetchVendorSpotsById('5e885c986681e9668fb469f7');
     }
 
-    logSpots() {
-        this.vendorSpotsFacade.all$.subscribe((spots) => console.log(spots));
-    }
-
-    addItemToTheCart() {
+    addItemToTheCart(): void {
         this.cartFacade.addItem({
             productBase: {
                 _id: '5e88aaa97c63d638909bf0fd',
@@ -66,11 +64,45 @@ export class AppComponent {
         });
     }
 
-    reduceItemFromCart() {
+    reduceItemFromCart(): void {
         this.cartFacade.reduceItem('5e88aaa97c63d638909bf0fd');
     }
 
-    deleteItemFromCart() {
+    deleteItemFromCart(): void {
         this.cartFacade.deleteItem('5e88aaa97c63d638909bf0fd');
+    }
+
+    newOrder() {
+        this.ordersFacade.newOrder({
+            vendorId: '5e88593ef758f163a7a224d8',
+            customerId: '5e88593ef758f163a7a224d8',
+            totalPrice: 6.66,
+            cartProducts: [
+                {
+                    _id: '5e88aaa97c63d638909bf0fd',
+                    vendorId: '5e88593ef758f163a7a224d8',
+                    name: 'firstProduct',
+                    price: 0.01,
+                    amount: 666,
+                    vendorSpotId: '5e885c986681e9668fb469f7',
+                },
+            ],
+            deliveryDetails: {
+                type: 'vendorSpot',
+                date: '10.04 21:37 ',
+                address: { name: 'nora', street: 'asd 2323', city: 'asd', locale: { lat: '12', long: '12' } },
+            },
+            paymentDetails: {
+                type: 'onSpot',
+                status: 'waiting',
+            },
+            note: 'jebać PiS bardziej',
+            status: 'ordered',
+            date: '09.04.2020 12:30',
+        });
+    }
+
+    getOrderHistory() {
+        this.ordersFacade.getHistory();
     }
 }

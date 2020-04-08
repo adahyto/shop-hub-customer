@@ -39,14 +39,11 @@ export function cartReducer(state: ICartState = initialState, action: CartAction
             const foundProductIndex = letFindIndex(cartProducts, toReduce);
             if (foundProductIndex !== -1) {
                 if (cartProducts[foundProductIndex].amount > 1) {
-                    console.log('reduce', cartProducts[foundProductIndex]);
                     cartProducts[foundProductIndex] = {
                         ...cartProducts[foundProductIndex],
                         amount: cartProducts[foundProductIndex].amount - 1,
                     };
-                    console.log('reduced', cartProducts[foundProductIndex]);
                 } else {
-                    console.log('delete');
                     cartProducts = deleteCartProduct(cartProducts, foundProductIndex);
                 }
             }

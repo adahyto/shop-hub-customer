@@ -2,38 +2,38 @@ import { IAddress } from './location';
 import { IProductBase } from './products';
 
 enum DeliveryType {
-    'vendorSpot',
-    'onAddress',
+    vendorSpot = 'vendorSpot',
+    onAddress = 'onAddress',
 }
 
 enum PaymentType {
-    'online',
-    'onSpot',
-    'onDeliver',
+    online = 'online',
+    onSpot = 'onSpot',
+    onDeliver = 'onDeliver',
 }
 
 enum PaymentStatus {
-    'paid',
-    'waiting',
+    paid = 'paid',
+    waiting = 'waiting',
 }
 
 enum OrderStatus {
-    'ordered',
-    'processing',
-    'onVendorSpot',
-    'onTheWay',
-    'delivered',
+    ordered = 'ordered',
+    processing = 'processing',
+    onVendorSpot = 'onVendorSpot',
+    onTheWay = 'onTheWay',
+    delivered = 'delivered',
 }
 
 export interface IDeliveryDetails {
-    type: DeliveryType;
+    type: string | DeliveryType;
     address: IAddress;
     date: string;
 }
 
 export interface IPaymentDetails {
-    type: PaymentType;
-    status: PaymentStatus;
+    type: string | PaymentType;
+    status: string | PaymentStatus;
 }
 
 export interface IVendorOrderInfo {
@@ -63,11 +63,11 @@ export interface IOrder {
     cartProducts: ICartProduct[];
     deliveryDetails: IDeliveryDetails;
     paymentDetails: IPaymentDetails;
-    status: OrderStatus;
+    status: string | OrderStatus;
     note: string;
 }
 
 export interface IOrderResponse {
-  success: boolean;
-  order: IOrder;
+    success: boolean;
+    order: IOrder;
 }

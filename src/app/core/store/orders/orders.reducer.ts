@@ -27,7 +27,7 @@ export function ordersReducer(state: IOrdersState = initialState, action: Orders
         }
         case EVENTS.ORDERS_HISTORY_RECEIVED: {
             const history: IOrder[] = action.orders;
-            return Object.assign({}, state, history);
+            return Object.assign({}, state, { history });
         }
         default:
             return state;

@@ -24,7 +24,6 @@ export class CartEffects {
         switchMap(({ taskId, productId }) =>
             of(productId).pipe(
                 map((response) => {
-                  console.log(response)
                   return new actions.CartReduceProductResponseAction(taskId, response)}),
             ),
         ),
@@ -35,7 +34,6 @@ export class CartEffects {
         switchMap(({ taskId, productId }) =>
             of(productId).pipe(
                 map((response) => {
-                    console.log(response);
                     return new actions.CartDeleteProductResponseAction(taskId, response);
                 }),
             ),
