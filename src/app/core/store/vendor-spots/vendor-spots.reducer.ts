@@ -1,11 +1,11 @@
-import { IVendorSpot } from './../../models/vendor-spots';
+import { IVendorSpot, IVendorSpotBase } from './../../models/vendor-spots';
 import { VendorSpotsActions } from './vendor-spots.actions';
 import * as EVENTS from './vendor-spots.events';
 
 export const VENDOR_SPOTS_FEATURE_KEY = 'vendorSpots';
 
 export interface IVendorSpotsState {
-    all: IVendorSpot[];
+    all: IVendorSpotBase[];
     byId: IVendorSpot | {};
 }
 

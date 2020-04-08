@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { vendorSpot, vendorSpots } from './../endpoints/endpoints';
-import { IVendorSpot } from './../models/vendor-spots';
+import { IVendorSpot, IVendorSpotBase } from './../models/vendor-spots';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -11,7 +11,7 @@ import { ApiService } from './api.service';
 export class VendorSpotsService {
     constructor(private api: ApiService) {}
 
-    getAll(): Observable<IVendorSpot[]> {
+    getAll(): Observable<IVendorSpotBase[]> {
         return this.api.get(vendorSpots(environment.apiUrl));
     }
 

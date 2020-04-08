@@ -24,7 +24,6 @@ export class ProductsFacade {
     };
 
     fetchProductsByCategory = (category: string): void => {
-      console.log(category)
         const taskId = 'fetch-products-by-category';
         this.store.dispatch(new actions.ProductsCategoryRequestAction(taskId, category));
     };

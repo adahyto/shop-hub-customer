@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { IVendorSpot } from '../../models/vendor-spots';
+import { IVendorSpot, IVendorSpotBase } from '../../models/vendor-spots';
 import * as EVENTS from './vendor-spots.events';
 
 export class VendorSpotsRequestAction implements Action {
@@ -9,7 +9,7 @@ export class VendorSpotsRequestAction implements Action {
 
 export class VendorSpotsResponseAction implements Action {
     readonly type = EVENTS.VENDOR_SPOTS_RECEIVED;
-    constructor(public taskId: string, public data: IVendorSpot[]) {}
+    constructor(public taskId: string, public data: IVendorSpotBase[]) {}
 }
 
 export class VendorSpotsByIdRequestAction implements Action {

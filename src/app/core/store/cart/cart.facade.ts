@@ -22,7 +22,6 @@ export class CartFacade {
     };
 
     deleteItem = (productId: string): void => {
-        console.log(productId);
         const taskId = 'delete-item';
         this.store.dispatch(new actions.CartDeleteProductRequestAction(taskId, productId));
     };
