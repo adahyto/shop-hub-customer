@@ -10,6 +10,7 @@ export class ProductsFacade {
     selectedById = this.store.pipe(select(selectors.getProductById));
     byCategory$ = this.store.pipe(select(selectors.getProductsByCategory));
     byName$ = this.store.pipe(select(selectors.getProductsByName));
+    categories$ = this.store.pipe(select(selectors.getCategories));
 
     constructor(private store: Store<IProductsPartialStore>) {}
 
@@ -31,5 +32,10 @@ export class ProductsFacade {
     searchProductsByName = (query: string): void => {
         const taskId = 'search-products-by-name';
         this.store.dispatch(new actions.ProductByNameRequestAction(taskId, query));
+    };
+
+    getCategories = (): void => {
+        const taskId = 'get-categories';
+        this.store.dispatch(new actions.ProductsCategoriesRequestAction(taskId));
     };
 }

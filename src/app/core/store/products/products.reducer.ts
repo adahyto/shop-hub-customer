@@ -9,6 +9,7 @@ export interface IProductsState {
     byId: IProduct | {};
     byCategory: IProduct[];
     byName: IProduct[];
+    categories: any;
 }
 
 export interface IProductsPartialStore {
@@ -20,6 +21,7 @@ const initialState: IProductsState = {
     byId: {},
     byCategory: [],
     byName: [],
+    categories: [],
 };
 
 export function productsReducer(state: IProductsState = initialState, action: ProductsActions): IProductsState {
@@ -39,6 +41,10 @@ export function productsReducer(state: IProductsState = initialState, action: Pr
         case EVENTS.PRODUCTS_BY_NAME_RECEIVED: {
             const byName = action.data;
             return Object.assign({}, state, { byName });
+        }
+        case EVENTS.PRODUCTS_CATEGORIES_RECEIVED: {
+            const categories = action.data;
+            return Object.assign({}, state, { categories });
         }
         default:
             return state;

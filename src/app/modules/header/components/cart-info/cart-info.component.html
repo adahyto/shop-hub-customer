@@ -1,7 +1,11 @@
 <section class="cart-info" (click)="openDialog()">
-    <span class="material-icons">
-        shopping_cart
-    </span>
+    <a (click)="openDialog()">
+        <button mat-menu-item>
+            <span class="material-icons">
+                shopping_cart
+            </span>
+        </button>
+    </a>
     <small>
         <i>{{ itemsCount }}</i>
         {{ itemsCount > 1 ? 'products' : 'product' }} from

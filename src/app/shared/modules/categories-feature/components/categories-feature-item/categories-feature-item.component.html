@@ -1,0 +1,11 @@
+<mat-card class="categories-feature-item">
+    <mat-card-header>
+        <div *ngIf="headerImg" mat-card-avatar class="categories-feture-item_header-image"></div>
+        <mat-card-title>{{ category[0]? category[0]: 'Unknown' }}</mat-card-title>
+        <mat-card-subtitle>{{ category[1] }}</mat-card-subtitle>
+    </mat-card-header>
+    <img [style.width]="imgWidth" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="photo" />
+    <mat-card-actions>
+        <button mat-button (click)="dispatch(category.name)">Browse Category</button>
+    </mat-card-actions>
+</mat-card>

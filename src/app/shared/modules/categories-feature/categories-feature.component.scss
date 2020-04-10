@@ -1,0 +1,8 @@
+.categories-feature {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  &_item {
+    margin: 15px;
+}
+}
