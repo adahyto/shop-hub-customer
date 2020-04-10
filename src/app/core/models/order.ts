@@ -47,7 +47,6 @@ export interface ICartProduct extends IProductBase, IVendorOrderInfo {
 
 export interface IAddToCartPayload {
     productBase: IProductBase;
-    vendorOrderInfo: IVendorOrderInfo;
     amount: number;
 }
 

@@ -9,8 +9,6 @@ export class CartService {
 
     baseToCartProduct(payload: IAddToCartPayload): ICartProduct {
         return {
-          vendorId: payload.vendorOrderInfo.vendorId,
-          vendorSpotId: payload.vendorOrderInfo.vendorSpotId,
           amount: payload.amount,
           ...payload.productBase,
         };

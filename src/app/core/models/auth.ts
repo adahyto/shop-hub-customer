@@ -1,6 +1,6 @@
 import { IUser } from './user';
 
-interface ILoginReqUser {
+export interface ILoginReqUser {
     username: string;
     password: string;
 }

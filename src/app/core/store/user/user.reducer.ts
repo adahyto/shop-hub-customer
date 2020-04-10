@@ -6,7 +6,7 @@ import * as EVENTS from './user.events';
 export const USER_FEATURE_KEY = 'user';
 
 export interface IUserState {
-    me: IUser | {};
+    me: IUser;
     token: string;
 }
 
@@ -28,15 +28,25 @@ const initialState: IUserState = {
 };
 
 export function userReducer(state: IUserState = initialState, action: UserActions): IUserState {
+    function empty(obj) {
+        for (const i in obj) return false;
+        return true;
+    }
     switch (action.type) {
         case EVENTS.USER_LOGIN_RECEIVED: {
-            const me: IUser = action.data.returnedUser;
-            const token: string = action.data.token;
-            return Object.assign({}, state, { me, token });
+            if (!empty(action.data)) {
+                const me: IUser = action.data.returnedUser;
+                const token: string = action.data.token;
+                return Object.assign({}, state, { me, token });
+            }
+            return state;
         }
         case EVENTS.USER_RECEIVED: {
-            const me: IUser = action.data;
-            return Object.assign({}, state, { me });
+            if (!empty(action.data)) {
+                const me: IUser = action.data;
+                return Object.assign({}, state, { me });
+            }
+            return state;
         }
         default:
             return state;

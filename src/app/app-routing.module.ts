@@ -15,6 +15,10 @@ const routes: Routes = [
                 loadChildren: () => import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
                 canActivate: [AuthGuard],
             },
+            {
+                path: 'api-test',
+                loadChildren: () => import('./modules/api-test/api-test.module').then((m) => m.ApiTestModule),
+            },
         ],
     },
 ];
