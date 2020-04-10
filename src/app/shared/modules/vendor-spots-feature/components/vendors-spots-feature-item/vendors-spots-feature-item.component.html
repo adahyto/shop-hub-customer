@@ -1,0 +1,16 @@
+<mat-card class="vendors-spots-feature-item">
+    <mat-card-header>
+        <div *ngIf="headerImg" mat-card-avatar class="vendors-spots-feture-item_header-image"></div>
+        <mat-card-title>{{ spot.name }}</mat-card-title>
+        <mat-card-subtitle>{{ spot.categories }}</mat-card-subtitle>
+    </mat-card-header>
+    <img [style.width]="imgWidth" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="photo" />
+    <mat-card-content>
+        <p>
+            {{ spot.description }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="dispatch(spot._id)">Visit shop</button>
+    </mat-card-actions>
+</mat-card>

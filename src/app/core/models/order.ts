@@ -1,5 +1,5 @@
 import { IAddress } from './location';
-import { IProductBase } from './products';
+import { IProduct,  } from './products';
 
 enum DeliveryType {
     vendorSpot = 'vendorSpot',
@@ -41,14 +41,12 @@ export interface IVendorOrderInfo {
     vendorSpotId: string;
 }
 
-export interface ICartProduct extends IProductBase, IVendorOrderInfo {
+export interface ICartProduct extends IProduct {
     amount: number;
 }
 
 export interface IAddToCartPayload {
-    productBase: IProductBase;
-    vendorOrderInfo: IVendorOrderInfo;
-    amount: number;
+    product: ICartProduct;
 }
 
 export interface ICart {

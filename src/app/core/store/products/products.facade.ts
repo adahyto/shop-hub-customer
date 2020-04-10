@@ -13,7 +13,7 @@ export class ProductsFacade {
 
     constructor(private store: Store<IProductsPartialStore>) {}
 
-    fetchAllProducts = (): void => {
+    fetchAllProducts = (query?: { perPage?: number; page?: number }): void => {
         const taskId = 'fetch-all-products';
         this.store.dispatch(new actions.ProductsRequestAction(taskId));
     };

@@ -8,11 +8,21 @@ export class CartService {
     constructor() {}
 
     baseToCartProduct(payload: IAddToCartPayload): ICartProduct {
-        return {
-          vendorId: payload.vendorOrderInfo.vendorId,
-          vendorSpotId: payload.vendorOrderInfo.vendorSpotId,
-          amount: payload.amount,
-          ...payload.productBase,
-        };
+        return payload.product;
+    }
+
+    calculateTotal(products: ICartProduct[]): number {
+        let total = 0;
+        products.forEach((item) => {
+            total += item.price * item.amount;
+        });
+        return total;
+    }
+
+    sortByVendorSpot(products: ICartProduct[]): { spot: string; products: ICartProduct[] }[] {
+        return [
+            { spot: 'asd', products },
+            { spot: 'asd', products },
+        ];
     }
 }

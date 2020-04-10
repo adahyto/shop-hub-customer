@@ -1,0 +1,14 @@
+<section class="products-feature" [style.flex-display]="flexDisplay">
+    <app-products-feature-item
+        class="products-feature_item"
+        *ngFor="let item of products"
+        [product]="item"
+        [imgWidth]="'220px'"
+        [headerImg]="true"
+        [image]="true"
+        [description]="true"
+        [categories]="true"
+        (emitProduct)="addToCart($event)"
+    ></app-products-feature-item>
+</section>
+<button mat-button>Show more</button>

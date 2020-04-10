@@ -1,0 +1,11 @@
+<section class="cart-info" (click)="openDialog()">
+    <span class="material-icons">
+        shopping_cart
+    </span>
+    <small>
+        <i>{{ itemsCount }}</i>
+        {{ itemsCount > 1 ? 'products' : 'product' }} from
+        <i>{{ vendorSpotsCount }}</i>
+        {{ vendorSpotsCount > 1 ? 'shops' : 'shop' }}
+    </small>
+</section>

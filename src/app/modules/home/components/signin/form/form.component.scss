@@ -1,0 +1,12 @@
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.signin {
+  &_form {
+      width: 250px;
+      margin: 100px auto;
+      @include flex-column();
+  }
+}

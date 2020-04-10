@@ -1,0 +1,10 @@
+<section class="vendors-spots-feature" [style.flex-display]="flexDisplay">
+    <app-vendors-spots-feature-item
+    class="vendors-spots-feature_item"
+        *ngFor="let item of vendorSpots"
+        [spot]="item"
+        [imgWidth]="'220px'"
+        [headerImg]="false"
+        (emitSpot)="goToSpot($event)"
+    ></app-vendors-spots-feature-item>
+</section>
