@@ -1,27 +1,42 @@
-<mat-card class="products-feature">
+<mat-card class="products-feature" [style]="thin ? 'height:100px' : 'height:350px'">
     <mat-card-header>
         <div *ngIf="headerImg" mat-card-avatar class="products-feature_header-image"></div>
-        <mat-card-title>{{ product.name }}</mat-card-title>
-        <mat-card-subtitle>{{ product.categories }}</mat-card-subtitle>
+        <mat-card-title>{{ amount && product.amount ? product.name + '(' + product.amount + ')' : product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ categories ? product.categories : total && amount ? product.price * product.amount : '' }}</mat-card-subtitle>
     </mat-card-header>
     <img
+        *ngIf="image"
         [style.width]="imgWidth"
         mat-card-image
         src="https://material.angular.io/assets/img/examples/shiba2.jpg"
         alt="Photo of a Shiba Inu"
-        alt="photo"
     />
-    <mat-card-content>
+    <mat-card-content *ngIf="description">
         <p>
             {{ product.description }}
         </p>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-button (click)="dispatch(product)">
+    <mat-card-actions class="products-feature_actions"
+        ><button *ngIf="!allBtns" mat-button (click)="dispatch(product)">
             <span class="material-icons">
                 add_shopping_cart
             </span>
-            Add to Cart
+            Add to Cart {{ total && amount ? product.price * product.amount : product.price }}
+        </button>
+        <button *ngIf="allBtns" mat-button (click)="dispatch(product)">
+            <span class="material-icons">
+                exposure_plus_1
+            </span>
+        </button>
+        <button *ngIf="allBtns" mat-button (click)="reduce(product._id)">
+            <span class="material-icons">
+                exposure_neg_1
+            </span>
+        </button>
+        <button *ngIf="allBtns" mat-button (click)="delete(product._id)">
+            <span class="material-icons">
+                delete
+            </span>
         </button>
     </mat-card-actions>
 </mat-card>

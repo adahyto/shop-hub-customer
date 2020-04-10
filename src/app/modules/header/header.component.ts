@@ -25,6 +25,8 @@ export class HeaderComponent extends CommonComponent {
         this.subscriptions.add(this.userFacade.me$.subscribe((user) => (this.username = user.username)));
     }
 
+
+
     goTo(url: string): void {
         this.navTo(`/${url}`);
     }

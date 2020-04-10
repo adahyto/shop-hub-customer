@@ -8,6 +8,6 @@ import { ProductsFeatureComponent } from './products-feature.component';
 @NgModule({
     declarations: [ProductsFeatureComponent, ProductsFeatureItemComponent],
     imports: [CommonModule, MatButtonModule, MatCardModule],
-    exports: [ProductsFeatureComponent],
+    exports: [ProductsFeatureComponent, ProductsFeatureItemComponent],
 })
 export class ProductsFeatureModule {}

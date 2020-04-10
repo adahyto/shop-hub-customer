@@ -1,0 +1,23 @@
+<h4 mat-dialog-title>Cart</h4>
+<div mat-dialog-content>
+    <section class="cart-items" *ngIf="products">
+        <app-products-feature-item
+            class="cart-dialog-feature_item"
+            *ngFor="let item of products"
+            [product]="item"
+            [allBtns]="true"
+            [thin]="true"
+            [amount]="true"
+            [total]="true"
+            (emitProduct)="addToCart($event)"
+            (emitReduce)="reduceItemFromCart($event)"
+            (emitDelete)="deleteItemFromCart($event)"
+        ></app-products-feature-item>
+    </section>
+    <p *ngIf="products.length === 0">Empty</p>
+    <section class="cart-dialog-feature_actions">
+        <strong *ngIf="products.length !== 0">total: {{total(products)}}</strong>
+        <button mat-button *ngIf="products.length !== 0">Proceed</button>
+        <button mat-button (click)="exit()">Continue Shopping</button>
+    </section>
+</div>

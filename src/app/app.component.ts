@@ -1,4 +1,6 @@
+import { CartDialogFeatureComponent } from './shared/modules/cart-dialog-feature/cart-dialog-feature.component';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-root',

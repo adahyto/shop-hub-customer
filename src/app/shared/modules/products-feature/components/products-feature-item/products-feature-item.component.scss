@@ -1,8 +1,11 @@
 .products-feature {
-  height: 350px;
-  margin: 7% auto;
+  margin: 0 auto;
   &_header-image {
       background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
       background-size: cover;
+  }
+  &_actions{
+    display:flex;
+    flex-direction: row;
   }
 }
