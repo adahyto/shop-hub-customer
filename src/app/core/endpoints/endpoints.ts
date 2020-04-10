@@ -8,6 +8,7 @@ export const products = (baseUrl: string, page: number = 1): string => `${baseUr
 export const product = (baseUrl: string, id: string): string => `${products(baseUrl)}/id/${id}`;
 export const inCategory = (baseUrl: string, category: string): string => `${products(baseUrl)}/${category}`;
 export const searchName = (baseUrl: string, query: string): string => `${products(baseUrl)}/search/name/${query}`;
+export const categories = (baseUrl: string): string => `${products(baseUrl)}/categories`;
 
 export const vendorSpots = (baseUrl: string): string => `${baseUrl}/shops`;
 export const vendorSpot = (baseUrl: string, id: string): string => `${vendorSpots(baseUrl)}/id/${id}`;
