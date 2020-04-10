@@ -1,5 +1,6 @@
-import { Component, Injector, Input ,OnInit} from '@angular/core';
+import { Component, Injector, Input, OnInit } from '@angular/core';
 import { CommonComponent } from './../../../core/components/commonComponent';
+import { ICartProduct } from './../../../core/models/order';
 import { IProduct } from './../../../core/models/products';
 import { CartFacade } from './../../../core/store/cart/cart.facade';
 import { ProductsFacade } from './../../../core/store/products/products.facade';
@@ -10,8 +11,8 @@ import { ProductsFacade } from './../../../core/store/products/products.facade';
     styleUrls: ['./products-feature.component.scss'],
 })
 export class ProductsFeatureComponent extends CommonComponent implements OnInit {
-  @Input() flexDisplay
-  products: IProduct[];
+    @Input() flexDisplay;
+    products: IProduct[];
 
     constructor(private injector: Injector, private productFacade: ProductsFacade, private cartFacade: CartFacade) {
         super(injector);
@@ -22,14 +23,7 @@ export class ProductsFeatureComponent extends CommonComponent implements OnInit 
         this.productFacade.fetchAllProducts();
     }
 
-    addToCart(product: IProduct, amount: number): void {
-        this.cartFacade.addItem({
-            productBase: {
-                _id: product._id,
-                price: product.price,
-                name: product.name,
-            },
-            amount
-        });
+    addToCart(product: ICartProduct, amount: number): void {
+        this.cartFacade.addItem({ product: { ...product, amount: amount ? amount : 1 } });
     }
 }

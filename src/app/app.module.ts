@@ -1,3 +1,4 @@
+import { HeaderModule } from './modules/header/header.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthGuard } from './core/services/auth-guard.service';
@@ -24,6 +25,7 @@ import { CreateStoreModule } from './core/store/create-store.module';
         CreateStoreModule,
         BrowserAnimationsModule,
         CommonModule,
+        HeaderModule
     ],
     providers: [
         UserFacade,

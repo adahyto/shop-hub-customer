@@ -57,12 +57,17 @@ export class ApiTestComponent extends CommonComponent {
 
     addItemToTheCart(): void {
         this.cartFacade.addItem({
-            productBase: {
+            product: {
                 _id: '5e88aaa97c63d638909bf0fd',
+                name: 'firstProduct',
                 price: 0.01,
-                name: 'to',
+                amount: 666,
+                vendorId: 'asd',
+                vendorSpotId: 'asd',
+                description: '',
+                categories: [],
+                additionalDetails: ''
             },
-            amount: 1,
         });
     }
 
@@ -85,6 +90,11 @@ export class ApiTestComponent extends CommonComponent {
                     name: 'firstProduct',
                     price: 0.01,
                     amount: 666,
+                    vendorId: 'asd',
+                    vendorSpotId: 'asd',
+                    description: '',
+                    categories: [],
+                    additionalDetails: '',
                 },
             ],
             deliveryDetails: {

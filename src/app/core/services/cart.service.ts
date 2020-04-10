@@ -8,9 +8,6 @@ export class CartService {
     constructor() {}
 
     baseToCartProduct(payload: IAddToCartPayload): ICartProduct {
-        return {
-          amount: payload.amount,
-          ...payload.productBase,
-        };
+        return payload.product;
     }
 }

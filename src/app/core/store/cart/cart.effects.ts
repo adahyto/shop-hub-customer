@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { map, take, switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { CartService } from '../../services/cart.service';
 import * as actions from './cart.actions';
 import * as EVENTS from './cart.events';
@@ -22,21 +22,14 @@ export class CartEffects {
     @Effect() reduceItem$ = this.actions$.pipe(
         ofType<actions.CartReduceProductRequestAction>(EVENTS.CART_REDUCE_PRODUCT_REQUESTED),
         switchMap(({ taskId, productId }) =>
-            of(productId).pipe(
-                map((response) => {
-                  return new actions.CartReduceProductResponseAction(taskId, response)}),
-            ),
+            of(productId).pipe(map((response) => new actions.CartReduceProductResponseAction(taskId, response))),
         ),
     );
 
     @Effect() deleteItem$ = this.actions$.pipe(
         ofType<actions.CartDeleteProductRequestAction>(EVENTS.CART_DELETE_PRODUCT_REQUESTED),
         switchMap(({ taskId, productId }) =>
-            of(productId).pipe(
-                map((response) => {
-                    return new actions.CartDeleteProductResponseAction(taskId, response);
-                }),
-            ),
+            of(productId).pipe(map((response) => new actions.CartDeleteProductResponseAction(taskId, response))),
         ),
     );
 }

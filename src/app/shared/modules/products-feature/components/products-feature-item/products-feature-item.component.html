@@ -4,13 +4,24 @@
         <mat-card-title>{{ product.name }}</mat-card-title>
         <mat-card-subtitle>{{ product.categories }}</mat-card-subtitle>
     </mat-card-header>
-    <img [style.width]="imgWidth" mat-card-image src="product.img" alt="photo" />
+    <img
+        [style.width]="imgWidth"
+        mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu"
+        alt="photo"
+    />
     <mat-card-content>
         <p>
             {{ product.description }}
         </p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button (click)="dispatch(product)">Add to Cart</button>
+        <button mat-button (click)="dispatch(product)">
+            <span class="material-icons">
+                add_shopping_cart
+            </span>
+            Add to Cart
+        </button>
     </mat-card-actions>
 </mat-card>
