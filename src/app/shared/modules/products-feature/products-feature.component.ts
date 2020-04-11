@@ -27,7 +27,7 @@ export class ProductsFeatureComponent extends CommonComponent implements OnInit 
         this.productFacade.fetchAllProducts();
     }
 
-    addToCart(product: ICartProduct, amount: number): void {
+    addToCart(product: ICartProduct, amount?: number): void {
         this.cartFacade.addItem({ product: { ...product, amount: amount ? amount : 1 } });
     }
 }
