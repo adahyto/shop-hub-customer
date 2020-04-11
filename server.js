@@ -9,4 +9,4 @@ app.get("/service-worker.js", (req, res) => {
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist/shop-hub-customer/index.html'));
 });
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 4000);
