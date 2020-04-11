@@ -43,8 +43,8 @@ export class CartDialogFeatureComponent extends CommonComponent {
         this.cartFacade.addItem({ product: { ...product, amount: amount ? amount : 1 } });
     }
 
-    total(products: ICartProduct[]): number {
-        return this.cartService.calculateTotal(products);
+    total(payload: { spot: string; products: ICartProduct[] }[]): number {
+        return this.cartService.calculateTotal([].concat(...payload.map((data) => data.products)));
     }
 
     reduceItemFromCart(id: string): void {
