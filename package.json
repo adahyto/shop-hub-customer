@@ -1,7 +1,7 @@
 {
     "name": "shop-hub-customer",
     "version": "0.0.0",
-    "main": "start.js",
+    "main": "server.js",
     "scripts": {
         "ng": "ng",
         "start": "node server.js",
