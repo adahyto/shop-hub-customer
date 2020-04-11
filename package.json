@@ -9,11 +9,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod",
     "heroku-postbuild": "ng build --prod"
   },
   "engines": {
     "node": "10.16.3",
-    "npm": "6.9.0"
+    "npm": "3.5.2"
   },
   "private": true,
   "dependencies": {
