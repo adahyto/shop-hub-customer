@@ -57,7 +57,7 @@ export interface IOrder {
     date: string;
     vendorId: string;
     customerId: string;
-    totalPrice: number;
+    totalPrice: string;
     cartProducts: ICartProduct[];
     deliveryDetails: IDeliveryDetails;
     paymentDetails: IPaymentDetails;
