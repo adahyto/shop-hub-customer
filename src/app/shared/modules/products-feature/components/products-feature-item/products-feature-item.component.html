@@ -1,6 +1,6 @@
 <mat-card class="products-feature" [style]="thin ? 'height:100px' : 'height:350px'">
     <mat-card-header>
-        <div *ngIf="headerImg" mat-card-avatar class="products-feature_header-image" style="margin-top:-18px;"></div>
+        <div *ngIf="headerImg" mat-card-avatar class="products-feature_header-image"></div>
         <mat-card-title>{{ amount && product.amount ? product.name + '(' + product.amount + ')' : product.name }}</mat-card-title>
         <mat-card-subtitle>{{ categories ? product.categories : total && amount ? product.price * product.amount : '' }}</mat-card-subtitle>
     </mat-card-header>
