@@ -16,7 +16,7 @@ export interface DialogData {
     styleUrls: ['cart-dialog-feature-component.scss'],
 })
 export class CartDialogFeatureComponent extends CommonComponent {
-    products: ICartProduct[];
+    products: { spot: string; products: ICartProduct[] }[];
     username: string;
     constructor(
         public injector: Injector,
@@ -28,7 +28,7 @@ export class CartDialogFeatureComponent extends CommonComponent {
         super(injector);
         this.subscriptions.add(
             this.cartFacade.mine$.subscribe((cart) => {
-                this.products = cart.products;
+                this.products = this.cartService.sortByVendorSpot(cart.products);
             }),
         );
         this.subscriptions.add(this.userFacade.me$.subscribe((user) => (this.username = user.username)));
