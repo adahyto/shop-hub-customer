@@ -83,7 +83,7 @@ export class ApiTestComponent extends CommonComponent {
         this.ordersFacade.newOrder({
             vendorId: '5e88593ef758f163a7a224d8',
             customerId: '5e88593ef758f163a7a224d8',
-            totalPrice: 6.66,
+            totalPrice: "6.66",
             cartProducts: [
                 {
                     _id: '5e88aaa97c63d638909bf0fd',
