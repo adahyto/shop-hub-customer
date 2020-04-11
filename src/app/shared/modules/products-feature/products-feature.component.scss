@@ -3,6 +3,12 @@
     overflow-x: auto;
     overflow-y: hidden;
     &_item {
-      margin: 15px;
-  }
+        margin: 15px;
+    }
+}
+
+.more {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
 }

@@ -2,41 +2,37 @@
     <h1><a (click)="goTo('')">Shop-Hub</a></h1>
     <span style="flex: 1;"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
+        <span class="material-icons">
+            apps
+        </span>
     </button>
     <mat-menu #menu="matMenu">
-        <a (click)="goTo('signin')" *ngIf="username === 'guest'">
-            <button mat-menu-item>
-                <span class="material-icons">
-                    loyalty
-                </span>
-                <span>signIn</span>
-            </button></a
-        >
-        <a (click)="goTo('signin')" *ngIf="username === 'guest'">
-            <button mat-menu-item>
-                <span class="material-icons">
-                    lock_open
-                </span>
-                <span>signUp</span>
-            </button>
-        </a>
-        <a (click)="goTo('')" *ngIf="username !== 'guest'">
-            <button mat-menu-item>
-                <span class="material-icons">
-                    home
-                </span>
-                <span>Home</span>
-            </button>
-        </a>
-        <a (click)="goTo('dashboard')" *ngIf="username !== 'guest'">
-            <button mat-menu-item>
-                <span class="material-icons">
-                    dashboard
-                </span>
-                <span>Dashboard</span>
-            </button>
-        </a>
+        <button mat-menu-item (click)="goTo('signin')" *ngIf="username === 'guest'">
+            <span class="material-icons">
+                loyalty
+            </span>
+            <span>signIn</span>
+        </button>
+        <button mat-menu-item (click)="goTo('signin')" *ngIf="username === 'guest'">
+            <span class="material-icons">
+                lock_open
+            </span>
+            <span>signUp</span>
+        </button>
+
+        <button (click)="goTo('')" *ngIf="username !== 'guest'" mat-menu-item>
+            <span class="material-icons">
+                home
+            </span>
+            <span>Home</span>
+        </button>
+
+        <button mat-menu-item (click)="goTo('dashboard')" *ngIf="username !== 'guest'">
+            <span class="material-icons">
+                dashboard
+            </span>
+            <span>Dashboard</span>
+        </button>
     </mat-menu>
     <span style="flex: 1;"></span>
     <app-cart-info [itemsCount]="productLength" [vendorSpotsCount]="vendorSpotsLength"></app-cart-info>

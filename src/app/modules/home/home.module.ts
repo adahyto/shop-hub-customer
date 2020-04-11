@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CategoriesFeatureModule } from './../../shared/modules/categories-feature/categories-feature.module';
@@ -22,6 +23,7 @@ import { HomeRoutingModule } from './home-routing.module';
         MatInputModule,
         MatButtonModule,
         MatFormFieldModule,
+        MatDividerModule,
     ],
 })
 export class HomeModule {}

@@ -7,7 +7,7 @@ import { CategoriesFeatureItemComponent } from './components/categories-feature-
 
 @NgModule({
     declarations: [CategoriesFeatureComponent, CategoriesFeatureItemComponent],
-    imports: [CommonModule, MatButtonModule, MatCardModule],
+    imports: [CommonModule, MatButtonModule, MatCardModule,],
     exports: [CategoriesFeatureComponent],
 })
 export class CategoriesFeatureModule {}

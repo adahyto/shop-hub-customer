@@ -17,7 +17,7 @@
     <p *ngIf="products.length === 0">Empty</p>
     <section class="cart-dialog-feature_actions">
         <strong *ngIf="products.length !== 0">total: {{total(products)}}</strong>
-        <button mat-button *ngIf="products.length !== 0">Proceed</button>
+        <button mat-button (click)="(username === 'guest'? goTo('signin'): goTo(''))" *ngIf="products.length !== 0">Proceed</button>
         <button mat-button (click)="exit()">Continue Shopping</button>
     </section>
 </div>
