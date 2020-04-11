@@ -1,4 +1,3 @@
-import { products } from './../endpoints/endpoints';
 import { Injectable } from '@angular/core';
 import { IAddToCartPayload, ICartProduct } from '../models/order';
 
@@ -12,12 +11,12 @@ export class CartService {
         return payload.product;
     }
 
-    calculateTotal(products: ICartProduct[]): number {
+    calculateTotal(products: ICartProduct[]): string {
         let total = 0;
         products.forEach((item) => {
             total += item.price * item.amount;
         });
-        return total;
+        return total.toFixed(2)
     }
 
     sortByVendorSpot(prods: ICartProduct[]): { spot: string; products: ICartProduct[] }[] {
