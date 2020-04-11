@@ -13,6 +13,7 @@ export class HeaderComponent extends CommonComponent {
     productLength: number;
     vendorSpotsLength: number;
     username: string;
+    categories;
 
     constructor(private injector: Injector, private cartFacade: CartFacade, private userFacade: UserFacade) {
         super(injector);
@@ -24,8 +25,6 @@ export class HeaderComponent extends CommonComponent {
         );
         this.subscriptions.add(this.userFacade.me$.subscribe((user) => (this.username = user.username)));
     }
-
-
 
     goTo(url: string): void {
         this.navTo(`/${url}`);

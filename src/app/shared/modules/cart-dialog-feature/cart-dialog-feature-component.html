@@ -1,23 +1,29 @@
-<h4 mat-dialog-title>Cart</h4>
+<h3 mat-dialog-title>Cart</h3>
 <div mat-dialog-content>
-    <section class="cart-items" *ngIf="products">
-        <app-products-feature-item
-            class="cart-dialog-feature_item"
-            *ngFor="let item of products"
-            [product]="item"
-            [allBtns]="true"
-            [thin]="true"
-            [amount]="true"
-            [total]="true"
-            (emitProduct)="addToCart($event)"
-            (emitReduce)="reduceItemFromCart($event)"
-            (emitDelete)="deleteItemFromCart($event)"
-        ></app-products-feature-item>
+    <section class="cart-items" *ngIf="products && products.length > 0">
+        <ng-container *ngFor="let item of products">
+            <h4>Shop: {{item.spot}}</h4>
+            <app-products-feature-item
+                class="cart-dialog-feature_item"
+                *ngFor="let prod of item.products"
+                [product]="prod"
+                [allBtns]="true"
+                [thin]="true"
+                [amount]="true"
+                [total]="true"
+                (emitProduct)="addToCart($event)"
+                (emitReduce)="reduceItemFromCart($event)"
+                (emitDelete)="deleteItemFromCart($event)"
+            ></app-products-feature-item>
+            <mat-divider></mat-divider>
+        </ng-container>
     </section>
-    <p *ngIf="products.length === 0">Empty</p>
+    <p *ngIf="products && products.length === 0">Empty</p>
     <section class="cart-dialog-feature_actions">
-        <strong *ngIf="products.length !== 0">total: {{total(products)}}</strong>
-        <button mat-button *ngIf="products.length !== 0">Proceed</button>
+        <strong *ngIf="products && products.length > 0">total: {{total(products)}}</strong>
+        <button mat-button (click)="(username === 'guest'? goTo('signin'): goTo(''))" *ngIf="products && products.length > 0">
+            Proceed
+        </button>
         <button mat-button (click)="exit()">Continue Shopping</button>
     </section>
 </div>

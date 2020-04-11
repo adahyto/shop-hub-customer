@@ -17,6 +17,9 @@ export class VendorsSpotsFeatureComponent extends CommonComponent implements OnI
         this.subscriptions.add(this.vendorSpotsFacade.all$.subscribe((spots) => (this.vendorSpots = spots)));
     }
 
+    goTo(uri: string): void {
+        this.navTo(`/${uri}`);
+    }
     ngOnInit() {
         this.vendorSpotsFacade.fetchAllVendorSpots();
     }

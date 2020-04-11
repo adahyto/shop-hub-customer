@@ -1,0 +1,9 @@
+<section class="categories-feature" [style.flex-display]="flexDisplay">
+    <app-categories-feature-item
+        class="categories-feature_item"
+        *ngFor="let item of categories"
+        [category]="item"
+        [imgWidth]="'220px'"
+        [headerImg]="false"
+    ></app-categories-feature-item>
+</section>

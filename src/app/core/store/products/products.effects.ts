@@ -38,4 +38,11 @@ export class ProductsEffects {
             this.productService.searchByName(query).pipe(map((response) => new actions.ProductsByNameResponseAction(taskId, response))),
         ),
     );
+
+    @Effect() getCategories$ = this.actions$.pipe(
+        ofType<actions.ProductsCategoriesRequestAction>(EVENTS.PRODUCTS_CATEGORIES_REQUESTED),
+        switchMap(({ taskId }) =>
+            this.productService.getCategories().pipe(map((response) => new actions.ProductsCategoriesResponseAction(taskId, response))),
+        ),
+    );
 }

@@ -19,6 +19,10 @@ export class ProductsFeatureComponent extends CommonComponent implements OnInit 
         this.subscriptions.add(this.productFacade.all$.subscribe((products) => (this.products = products)));
     }
 
+    goTo(uri: string): void {
+        this.navTo(`/${uri}`);
+    }
+
     ngOnInit() {
         this.productFacade.fetchAllProducts();
     }

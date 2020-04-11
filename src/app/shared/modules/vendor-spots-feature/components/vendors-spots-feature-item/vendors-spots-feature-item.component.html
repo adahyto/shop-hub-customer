@@ -2,9 +2,9 @@
     <mat-card-header>
         <div *ngIf="headerImg" mat-card-avatar class="vendors-spots-feture-item_header-image"></div>
         <mat-card-title>{{ spot.name }}</mat-card-title>
-        <mat-card-subtitle>{{ spot.categories }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ spot.address.street }}</mat-card-subtitle>
     </mat-card-header>
-    <img [style.width]="imgWidth" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="photo" />
+    <img [style.width]="imgWidth" mat-card-image src="https://picsum.photos/seed/picsum/300/200" alt="photo" />
     <mat-card-content>
         <p>
             {{ spot.description }}

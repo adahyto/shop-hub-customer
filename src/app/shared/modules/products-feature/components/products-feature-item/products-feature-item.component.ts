@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IProduct } from '../../../../../core/models/products';
-import { ICartProduct } from './../../../../../core/models/order';
 
 @Component({
     selector: 'app-products-feature-item',
