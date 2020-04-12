@@ -20,10 +20,18 @@ export class CategoriesFeatureComponent extends CommonComponent implements OnIni
             this.productFacade.categories$.subscribe((categories) => {
                 this.categories = Object.entries(categories).map((cats) => cats);
                 if (this.limit) {
-                  this.categories = this.categories.slice(0, this.limit);
+                    this.categories = this.categories.slice(0, this.limit);
                 }
             }),
         );
+    }
+
+    goTo(uri: string): void {
+        this.navTo(`/${uri}`);
+    }
+
+    goToIn(uri: string): void {
+        this.navTo(`/categories/${uri}`);
     }
 
     ngOnInit() {

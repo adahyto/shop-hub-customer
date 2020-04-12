@@ -9,11 +9,11 @@ export class CategoriesFeatureItemComponent {
     @Input() category: any;
     @Input() headerImg: boolean;
     @Input() imgWidth: string;
-    @Output() emitSpot = new EventEmitter<string>();
+    @Output() emitCategory = new EventEmitter<string>();
 
     constructor() {}
 
     dispatch(name: string): void {
-        this.emitSpot.emit(name);
+        this.emitCategory.emit(name);
     }
 }
