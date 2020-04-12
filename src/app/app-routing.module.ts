@@ -14,6 +14,10 @@ const routes: Routes = [
                 loadChildren: () => import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
             },
             {
+                path: 'categories',
+                loadChildren: () => import('./modules/categories/categories.module').then((m) => m.CategoriesModule),
+            },
+            {
                 path: 'api-test',
                 loadChildren: () => import('./modules/api-test/api-test.module').then((m) => m.ApiTestModule),
             },
