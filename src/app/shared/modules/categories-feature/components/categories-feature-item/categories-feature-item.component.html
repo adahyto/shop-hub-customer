@@ -1,4 +1,4 @@
-<mat-card class="categories-feature-item">
+<mat-card class="categories-feature-item" [style.width]="maxWidth">
     <mat-card-header>
         <div *ngIf="headerImg" mat-card-avatar class="categories-feture-item_header-image"></div>
         <mat-card-title>{{ category[0] ? category[0] : 'Unknown' }}</mat-card-title>
