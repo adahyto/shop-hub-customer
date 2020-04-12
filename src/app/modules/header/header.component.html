@@ -33,6 +33,13 @@
             </span>
             <span>Dashboard</span>
         </button>
+
+        <button mat-menu-item (click)="goTo('categories')">
+            <span class="material-icons">
+                category
+            </span>
+            <span>Categories</span>
+        </button>
     </mat-menu>
     <span style="flex: 1;"></span>
     <app-cart-info [itemsCount]="productLength" [vendorSpotsCount]="vendorSpotsLength"></app-cart-info>

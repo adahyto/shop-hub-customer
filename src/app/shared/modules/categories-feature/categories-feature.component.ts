@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit, Input } from '@angular/core';
+import { Component, Injector, Input, OnInit } from '@angular/core';
 import { CommonComponent } from './../../../core/components/commonComponent';
 import { ProductsFacade } from './../../../core/store/products/products.facade';
 
@@ -8,7 +8,10 @@ import { ProductsFacade } from './../../../core/store/products/products.facade';
     styleUrls: ['./categories-feature.component.scss'],
 })
 export class CategoriesFeatureComponent extends CommonComponent implements OnInit {
-    @Input() flexDisplay: string;
+    @Input() imageWidth: string;
+    @Input() wrap: boolean;
+    @Input() limit: number;
+    @Input() showAllBtn: boolean;
     categories: any;
 
     constructor(private injector: Injector, private productFacade: ProductsFacade) {
@@ -16,8 +19,19 @@ export class CategoriesFeatureComponent extends CommonComponent implements OnIni
         this.subscriptions.add(
             this.productFacade.categories$.subscribe((categories) => {
                 this.categories = Object.entries(categories).map((cats) => cats);
+                if (this.limit) {
+                    this.categories = this.categories.slice(0, this.limit);
+                }
             }),
         );
+    }
+
+    goTo(uri: string): void {
+        this.navTo(`/${uri}`);
+    }
+
+    goToIn(uri: string): void {
+        this.navTo(`/categories/${uri}`);
     }
 
     ngOnInit() {
