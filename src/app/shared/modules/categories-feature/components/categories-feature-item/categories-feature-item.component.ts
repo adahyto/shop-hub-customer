@@ -8,7 +8,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class CategoriesFeatureItemComponent {
     @Input() category: any;
     @Input() headerImg: boolean;
-    @Input() imgWidth: string;
     @Output() emitCategory = new EventEmitter<string>();
 
     constructor() {}
