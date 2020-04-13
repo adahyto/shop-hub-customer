@@ -3,7 +3,6 @@
         class="products-feature_item"
         *ngFor="let item of products"
         [product]="item"
-        [imgWidth]="'220px'"
         [headerImg]="true"
         [image]="true"
         [description]="true"
@@ -11,6 +10,6 @@
         (emitProduct)="addToCart($event)"
     ></app-products-feature-item>
 </section>
-<section class="more">
+<section class="row-reversed">
     <a (click)="goTo('')">Show more</a>
 </section>
