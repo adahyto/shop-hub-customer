@@ -3,12 +3,10 @@
         class="categories-feature_item"
         *ngFor="let item of categories"
         [category]="item"
-        [imgWidth]="imageWidth"
-        [maxWidth]="imageWidth"
         [headerImg]="false"
         (emitCategory)="goToIn($event)"
     ></app-categories-feature-item>
 </section>
-<section class="more" *ngIf="showAllBtn">
+<section class="rov-reversed" *ngIf="showAllBtn">
     <a (click)="goTo('categories')">Show all</a>
 </section>

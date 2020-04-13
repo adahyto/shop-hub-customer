@@ -16,7 +16,6 @@ export class ProductsFeatureItemComponent {
     @Input() amount: boolean;
     @Input() total: boolean;
     @Input() thin: boolean;
-    @Input() imgWidth: string;
     @Output() emitProduct = new EventEmitter<IProduct>();
     @Output() emitReduce = new EventEmitter<string>();
     @Output() emitDelete = new EventEmitter<string>();

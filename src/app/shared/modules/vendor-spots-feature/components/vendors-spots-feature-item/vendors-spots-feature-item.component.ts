@@ -9,7 +9,6 @@ import { IVendorSpot } from '../../../../../core/models/vendor-spots';
 export class VendorsSpotsFeatureItemComponent {
     @Input() spot: IVendorSpot;
     @Input() headerImg: boolean;
-    @Input() imgWidth: string;
     @Output() emitSpot = new EventEmitter<string>();
 
     constructor() {}

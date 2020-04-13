@@ -3,11 +3,10 @@
     class="vendors-spots-feature_item"
         *ngFor="let item of vendorSpots"
         [spot]="item"
-        [imgWidth]="'220px'"
-        [headerImg]="false"
+        [headerImg]="true"
         (emitSpot)="goToSpot($event)"
     ></app-vendors-spots-feature-item>
 </section>
-<section class="more">
+<section class="row-reversed">
   <a (click)="goTo('')">Show more</a>
 </section>

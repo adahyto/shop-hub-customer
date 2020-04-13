@@ -1,0 +1,12 @@
+.categories-feature-item {
+    margin: 0 auto;
+    width: 220px;
+    &_header-image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+    }
+    &_actions {
+        display: flex;
+        flex-direction: row;
+    }
+}
