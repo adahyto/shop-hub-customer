@@ -1,4 +1,4 @@
-import { Component, Injector } from '@angular/core';
+import { Component, Injector, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CommonComponent } from '../../../core/components/commonComponent';
 import { ICartProduct } from '../../../core/models/order';
