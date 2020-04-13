@@ -1,13 +1,22 @@
-.category-page-header{
-  position: relative;
-  text-align: center;
-  &_img {
+.category-page-header {
+    position: relative;
+    text-align: center;
+    &_img {
+        width: 100%;
+    }
+    &_txt {
+        z-index: 10;
+        color: white;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.blur {
     width: 100%;
-  }
-  &_txt {
+    height: 100%;
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+    background-color: rgba(0, 0, 0, 0.2);
 }

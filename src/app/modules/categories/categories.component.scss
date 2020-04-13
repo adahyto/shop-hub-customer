@@ -1,13 +1,22 @@
-.categories-header{
-  position: relative;
-  text-align: center;
-  &_img {
+.categories-header {
+    position: relative;
+    text-align: center;
+    &_img {
+        width: 100%;
+    }
+    &_txt {
+        color: white;
+        z-index: 10;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.blur {
     width: 100%;
-  }
-  &_txt {
+    height: 100%;
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+    background-color: rgba(0, 0, 0, 0.2);
 }
