@@ -5,10 +5,18 @@
         width: 100%;
     }
     &_txt {
+        z-index: 10;
         color: white;
         position: absolute;
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
+}
+
+.blur {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
 }
