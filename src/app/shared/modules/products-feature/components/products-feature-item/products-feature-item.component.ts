@@ -11,24 +11,14 @@ export class ProductsFeatureItemComponent {
     @Input() headerImg: boolean;
     @Input() image: boolean;
     @Input() description: boolean;
-    @Input() allBtns: boolean;
     @Input() categories: boolean;
-    @Input() amount: boolean;
-    @Input() total: boolean;
-    @Input() thin: boolean;
+
     @Output() emitProduct = new EventEmitter<IProduct>();
-    @Output() emitReduce = new EventEmitter<string>();
-    @Output() emitDelete = new EventEmitter<string>();
 
     constructor() {}
 
     dispatch(product: IProduct): void {
         this.emitProduct.emit(product);
     }
-    reduce(id: string): void {
-        this.emitReduce.emit(id);
-    }
-    delete(id: string): void {
-        this.emitDelete.emit(id);
-    }
+
 }

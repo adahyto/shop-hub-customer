@@ -1,22 +1,46 @@
 <h3 mat-dialog-title>Cart</h3>
 <div mat-dialog-content>
     <section class="cart-items" *ngIf="products && products.length > 0">
-        <ng-container *ngFor="let item of products">
-            <h4>{{idToName(item.spot)}}</h4>
-            <app-products-feature-item
-                class="cart-dialog-feature_item"
-                *ngFor="let prod of item.products"
-                [product]="prod"
-                [allBtns]="true"
-                [thin]="true"
-                [amount]="true"
-                [total]="true"
-                (emitProduct)="addToCart($event)"
-                (emitReduce)="reduceItemFromCart($event)"
-                (emitDelete)="deleteItemFromCart($event)"
-            ></app-products-feature-item>
-            <mat-divider></mat-divider>
-        </ng-container>
+        <mat-accordion class="accordion">
+            <mat-expansion-panel *ngFor="let item of products">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{idToName(item.spot)}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        ({{item.products.length}})
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <article *ngFor="let prod of item.products">
+                    <h4>
+                        <b>{{prod.name}}</b>
+                    </h4>
+                    <p>
+                        amount: {{prod.amount}}
+                    </p>
+                    <p>
+                        price: {{prod.price}} x {{prod.amount}} = {{prod.price * prod.amount}}
+                    </p>
+                    <div class="product-action">
+                        <button mat-button (click)="addToCart(prod)">
+                            <span class="material-icons">
+                                add
+                            </span>
+                        </button>
+                        <button mat-button (click)="reduceItemFromCart(prod._id)">
+                            <span class="material-icons">
+                                remove
+                            </span>
+                        </button>
+                        <button mat-button (click)="deleteItemFromCart(prod._id)">
+                            <span class="material-icons">
+                                delete
+                            </span>
+                        </button>
+                    </div>
+                </article>
+            </mat-expansion-panel>
+        </mat-accordion>
     </section>
     <p *ngIf="products && products.length === 0">Empty</p>
     <section class="cart-dialog-feature_actions">
