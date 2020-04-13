@@ -4,6 +4,7 @@ import { CommonComponent } from '../../../core/components/commonComponent';
 import { ICartProduct } from '../../../core/models/order';
 import { CartFacade } from '../../../core/store/cart/cart.facade';
 import { CartService } from './../../../core/services/cart.service';
+import { VendorSpotsService } from './../../../core/services/vendor-spots.service';
 import { UserFacade } from './../../../core/store/user/user.facade';
 
 export interface DialogData {
@@ -23,6 +24,7 @@ export class CartDialogFeatureComponent extends CommonComponent {
         public dialogRef: MatDialogRef<CartDialogFeatureComponent>,
         public cartFacade: CartFacade,
         public cartService: CartService,
+        private vendorSpotsService: VendorSpotsService,
         public userFacade: UserFacade,
     ) {
         super(injector);
@@ -53,6 +55,10 @@ export class CartDialogFeatureComponent extends CommonComponent {
 
     deleteItemFromCart(id: string): void {
         this.cartFacade.deleteItem(id);
+    }
+
+    idToName(id: string): string {
+        return this.vendorSpotsService.idToName(id);
     }
 
     onNoClick(): void {
