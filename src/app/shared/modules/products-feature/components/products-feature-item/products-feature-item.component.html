@@ -1,41 +1,21 @@
-<mat-card class="products-feature" [style]="thin ? 'height:100px' : 'height:350px'">
+<mat-card class="products-feature">
     <mat-card-header>
         <div *ngIf="headerImg" mat-card-avatar class="products-feature_header-image"></div>
-        <mat-card-title>{{ amount && product.amount ? product.name + '(' + product.amount + ')' : product.name }}</mat-card-title>
-        <mat-card-subtitle>{{ categories ? product.categories : total && amount ? product.price * product.amount : '' }}</mat-card-subtitle>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ product.categories }}</mat-card-subtitle>
     </mat-card-header>
-    <img
-        *ngIf="image"
-        mat-card-image
-        src="https://picsum.photos/seed/picsum/300/200"
-        alt="Photo of a Shiba Inu"
-    />
+    <img *ngIf="image" mat-card-image src="https://picsum.photos/seed/picsum/300/200" alt="product photo" />
     <mat-card-content *ngIf="description">
         <p>
             {{ product.description }}
         </p>
     </mat-card-content>
     <mat-card-actions class="products-feature_actions"
-        ><button *ngIf="!allBtns" mat-button (click)="dispatch(product)">
+        ><button mat-button (click)="dispatch(product)">
             <span class="material-icons">
                 add_shopping_cart
             </span>
-            Add to Cart {{ total && amount ? product.price * product.amount : product.price }}
-        </button>
-        <button *ngIf="allBtns" mat-button (click)="dispatch(product)">
-            <span class="material-icons">
-                exposure_plus_1
-            </span>
-        </button>
-        <button *ngIf="allBtns" mat-button (click)="reduce(product._id)">
-            <span class="material-icons">
-                exposure_neg_1
-            </span>
-        </button>
-        <button *ngIf="allBtns" mat-button (click)="delete(product._id)">
-            <span class="material-icons">
-                delete
-            </span>
+            Add to Cart {{ product.price }}
         </button>
     </mat-card-actions>
 </mat-card>
