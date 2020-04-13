@@ -18,7 +18,6 @@ export class CategoryPageComponent extends CommonComponent implements OnInit {
         this.subscriptions.add(
             this.productsFacade.byCategory$.subscribe((products) => {
                 this.products = products;
-                console.log(this.products)
             }),
         );
     }

@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <section class="cart-items" *ngIf="products && products.length > 0">
         <ng-container *ngFor="let item of products">
-            <h4>Shop: {{item.spot}}</h4>
+            <h4>{{idToName(item.spot)}}</h4>
             <app-products-feature-item
                 class="cart-dialog-feature_item"
                 *ngFor="let prod of item.products"
