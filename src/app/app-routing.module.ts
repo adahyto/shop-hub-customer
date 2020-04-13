@@ -21,6 +21,10 @@ const routes: Routes = [
                 path: 'api-test',
                 loadChildren: () => import('./modules/api-test/api-test.module').then((m) => m.ApiTestModule),
             },
+            {
+                path: 'order',
+                loadChildren: () => import('./modules/order/order.module').then((m) => m.OrderModule),
+            },
         ],
     },
 ];
