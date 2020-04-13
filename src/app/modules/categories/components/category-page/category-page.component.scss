@@ -1,13 +1,14 @@
-.category-page-header{
-  position: relative;
-  text-align: center;
-  &_img {
-    width: 100%;
-  }
-  &_txt {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.category-page-header {
+    position: relative;
+    text-align: center;
+    &_img {
+        width: 100%;
+    }
+    &_txt {
+        color: white;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
