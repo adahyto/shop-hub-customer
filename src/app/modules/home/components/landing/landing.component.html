@@ -5,10 +5,10 @@
 <mat-divider></mat-divider>
 <section>
     <h2><a (click)="goTo('categories')">Categories</a></h2>
-    <app-categories-feature [limit]="4" [imageWidth]="'250px'" [showAllBtn]="true"></app-categories-feature>
+    <app-categories-feature [limit]="4"></app-categories-feature>
 </section>
 <mat-divider></mat-divider>
 <section>
     <h2>Products from all shops</h2>
-    <app-products-feature></app-products-feature>
+    <app-products-feature [limit]="8"></app-products-feature>
 </section>
