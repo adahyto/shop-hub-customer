@@ -9,7 +9,6 @@ import { ProductsFacade } from './../../../core/store/products/products.facade';
 })
 export class CategoriesFeatureComponent extends CommonComponent implements OnInit {
     @Input() imageWidth: string;
-    @Input() wrap: boolean;
     @Input() limit: number;
     @Input() showAllBtn: boolean;
     categories: any;

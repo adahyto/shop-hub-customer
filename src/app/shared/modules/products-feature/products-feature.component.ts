@@ -11,12 +11,19 @@ import { ProductsFacade } from './../../../core/store/products/products.facade';
     styleUrls: ['./products-feature.component.scss'],
 })
 export class ProductsFeatureComponent extends CommonComponent implements OnInit {
-    @Input() flexDisplay;
+    @Input() limit: number;
     products: IProduct[];
 
     constructor(private injector: Injector, private productFacade: ProductsFacade, private cartFacade: CartFacade) {
         super(injector);
-        this.subscriptions.add(this.productFacade.all$.subscribe((products) => (this.products = products)));
+        this.subscriptions.add(
+            this.productFacade.all$.subscribe((products) => {
+                this.products = products;
+                if (this.limit) {
+                    this.products = this.products.slice(0, this.limit);
+                }
+            }),
+        );
     }
 
     goTo(uri: string): void {
